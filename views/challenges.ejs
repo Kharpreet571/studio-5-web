@@ -7,31 +7,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* Reset */
+    /* Reset and Base */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
+      font-family: 'Poppins', sans-serif;
       background: #f7f9fc;
-      color: #333;
+      color: #111119;
       line-height: 1.6;
-      padding-top: 70px; /* for fixed navbar */
+      padding-top: 80px;
     }
 
     /* Header/Navbar */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #004aad;
-      padding: 1.0rem 1rem;
+      background-color: purple;
+      padding: 1rem;
       color: #ecf0f1;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: fixed;
+      top: 0;
+      width: 100%;
       z-index: 1000;
     }
 
@@ -39,24 +38,16 @@
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-    }
-
-    nav {
-      margin-top: 0;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     nav ul {
       display: flex;
       list-style: none;
       gap: 1.8rem;
+      flex-wrap: wrap;
+      padding: 0;
     }
 
     nav ul li a {
@@ -68,17 +59,12 @@
       transition: background-color 0.3s ease;
     }
 
-    nav ul li a:hover {
-      background-color: #418dda;
-    }
-
-    /* Active link styling */
+    nav ul li a:hover,
     nav ul li a.active {
       background-color: #418dda;
       font-weight: 700;
     }
 
-    /* Main container */
     .privacy-container {
       max-width: 960px;
       margin: 30px auto 50px;
@@ -120,7 +106,6 @@
       text-align: center;
     }
 
-    /* Table */
     .table-container {
       overflow-x: auto;
       margin-top: 10px;
@@ -161,7 +146,6 @@
       cursor: default;
     }
 
-    /* Enforcement blocks */
     .enforcement-content {
       display: flex;
       flex-direction: column;
@@ -181,41 +165,17 @@
       line-height: 1.5;
     }
 
-    /* Footer */
-    .footer {
+    footer {
+      background-color: purple;
+      color: #ecf0f1;
       text-align: center;
-      padding: 20px 0;
-      background: #004aad;
-      color: #f0f4ff;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
       margin-top: 40px;
     }
 
-    /* Responsive */
     @media (max-width: 720px) {
-      header {
-        padding: 12px 20px;
-      }
-
-      .container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 0.5rem;
-      }
-
-      nav ul li {
-        margin-bottom: 10px;
-      }
-
       .privacy-container {
         padding: 25px 20px;
         margin: 20px 15px 40px;
@@ -229,6 +189,11 @@
       .challenges-table td {
         padding: 12px 10px;
       }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
     }
   </style>
 </head>
@@ -236,17 +201,11 @@
   <header>
     <div class="container">
       <h1>Data Privacy</h1>
-      <nav>
-        <ul>
-          <li><a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a></li>
-          <li><a href="/challenges" class="<%= activePage === 'challenges' ? 'active' : '' %>">Challenges</a></li>
-          <!-- Add more navigation items as needed -->
-        </ul>
-      </nav>
+      <!-- Optional partial: -->
+      <%- include('partials/navbar', {currentPage: 'challenges'}) %>
     </div>
   </header>
 
-  <!-- Main Container -->
   <div class="privacy-container">
     <h1 class="main-title">Data Privacy Challenges in the Digital Age</h1>
 
@@ -295,8 +254,7 @@
     </section>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <p>© 2025 Data Privacy Project</p>
   </footer>
 </body>
