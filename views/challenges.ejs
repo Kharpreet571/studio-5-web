@@ -4,20 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Data Privacy Challenges</title>
-
-  <header>
-  <div class="container">
-    <h1>Data Privacy</h1>
-    <nav>
-      <ul>
-        <li><a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a></li>
-        <li><a href="/challenges" class="<%= activePage === 'challenges' ? 'active' : '' %>">Challenges</a></li>
-        <!-- Add more navigation items as needed -->
-      </ul>
-    </nav>
-  </div>
-</header>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     /* Reset */
     * {
@@ -34,48 +22,60 @@
       padding-top: 70px; /* for fixed navbar */
     }
 
-    /* Navbar */
-    .navbar {
+    /* Header/Navbar */
+    header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: #004aad;
-      color: #fff;
+      background-color: #004aad;
+      padding: 1.0rem 1rem;
+      color: #ecf0f1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      z-index: 1000;
-      font-weight: 600;
     }
 
-    .nav-logo {
+    header h1 {
+      font-weight: 700;
       font-size: 1.8rem;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
 
-    .nav-links {
-      list-style: none;
+    nav {
+      margin-top: 0;
+    }
+
+    nav ul {
       display: flex;
-      gap: 25px;
+      list-style: none;
+      gap: 1.8rem;
     }
 
-    .nav-links li a {
-      color: #e0e7ff;
+    nav ul li a {
+      color: #ecf0f1;
       text-decoration: none;
-      font-size: 1rem;
-      padding: 8px 12px;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
       border-radius: 4px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
-    .nav-links li a:hover,
-    .nav-links li a:focus {
-      background: #e0e7ff;
-      color: #004aad;
-      outline: none;
+    nav ul li a:hover {
+      background-color: #418dda;
+    }
+
+    /* Active link styling */
+    nav ul li a.active {
+      background-color: #418dda;
+      font-weight: 700;
     }
 
     /* Main container */
@@ -197,18 +197,22 @@
 
     /* Responsive */
     @media (max-width: 720px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+      header {
         padding: 12px 20px;
       }
 
-      .nav-links {
+      .container {
         flex-direction: column;
-        width: 100%;
+        align-items: flex-start;
       }
 
-      .nav-links li {
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+      }
+
+      nav ul li {
         margin-bottom: 10px;
       }
 
@@ -227,11 +231,22 @@
       }
     }
   </style>
-  
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1>Data Privacy</h1>
+      <nav>
+        <ul>
+          <li><a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a></li>
+          <li><a href="/challenges" class="<%= activePage === 'challenges' ? 'active' : '' %>">Challenges</a></li>
+          <!-- Add more navigation items as needed -->
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ✅ Main Container -->
+  <!-- Main Container -->
   <div class="privacy-container">
     <h1 class="main-title">Data Privacy Challenges in the Digital Age</h1>
 
@@ -249,7 +264,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td>Lack of Data Transparency</td><td>Apps collect personal data without clearly informing users about how it’s used or shared.</td></tr>
+            <tr><td>1</td><td>Lack of Data Transparency</td><td>Apps collect personal data without clearly informing users about how it's used or shared.</td></tr>
             <tr><td>2</td><td>Risks of Cloud Computing</td><td>Cloud storage increases exposure to breaches, especially with weak security or foreign storage laws.</td></tr>
             <tr><td>3</td><td>Weak Data Protection Laws</td><td>Inconsistent or weak laws allow unchecked data collection and misuse.</td></tr>
             <tr><td>4</td><td>Frequent Data Breaches</td><td>Human error, hacking, or theft often exposes sensitive personal data.</td></tr>
@@ -280,7 +295,7 @@
     </section>
   </div>
 
-  <!-- ✅ Footer -->
+  <!-- Footer -->
   <footer class="footer">
     <p>© 2025 Data Privacy Project</p>
   </footer>
