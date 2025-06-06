@@ -1,73 +1,46 @@
-
 const express = require('express');
-const path = require('path'); // Only declare this once at the top
+const path = require('path');
+
 const app = express();
+const PORT = 3000;
 
-// Configure view engine
-app.set('views', path.join(__dirname, 'views'));
+// Set view engine
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
 
+// Set views directory
+app.set('views', path.join(__dirname, 'views'));
 
-app.get('/test', (req, res) => {
-  res.render('test', { currentPage: 'test' });
-});
+// Serve static files (CSS, images, etc.)
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Routing starts here
+// ROUTES
+
+// Home Page
 app.get('/', (req, res) => {
   res.render('home', { currentPage: 'home' });
 });
-// Example route handler
+
+// Introduction Page
 app.get('/introduction', (req, res) => {
   res.render('introduction', { currentPage: 'introduction' });
 });
 
-app.get('/challenges', (req, res) => {
-  res.render('challenges', { currentPage: 'challenges' });
+// Data Privacy Guide Page
+app.get('/data-privacy-guide', (req, res) => {
+  res.render('data-privacy-guide', { currentPage: 'data-privacy-guide' });
 });
 
-// And so on for other routes...
-
-app.get('/privacy-act', function (req, res) {
-    res.render('privacy-act', { title: 'Privacy Act 2020' });
+// Privacy Act Page
+app.get('/privacy-act', (req, res) => {
+  res.render('privacy-act', { currentPage: 'privacy-act' });
 });
 
-app.get('/principle-5', function (req, res) {
-    res.render('principle-5', { title: 'Principle 5' });
+// GDPR Page
+app.get('/gdpr', (req, res) => {
+  res.render('gdpr', { currentPage: 'gdpr' });
 });
 
-app.get('/principle-6', function (req, res) {
-    res.render('principle-6', { title: 'Principle 6' });
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Running at Port ${PORT}`);
 });
-
-app.get('/principle-9', function (req, res) {
-    res.render('principle-9', { title: 'Principle 9' });
-});
-
-app.get('/principle-11', function (req, res) {
-    res.render('principle-11', { title: 'Principle 11' });
-});
-
-app.get('/gdpr', function (req, res) {
-    res.render('gdpr', { title: 'GDPR' });
-});
-
-app.get('/health-data', function (req, res) {
-    res.render('health-data', { title: 'Health Data' });
-});
-
-app.get('/nz-privacy-law', function (req, res) {
-    res.render('nz-privacy-law', { title: 'NZ Privacy Law' });
-});
-
-app.get('/conclusion', function (req, res) {
-    res.render('conclusion', { title: 'Conclusion' });
-});
-
-app.get('/privacy', (req, res) => {
-    res.render('privacy-act');
-});
-
-
-app.listen(process.env.port || 3000);
-console.log('Running at Port 3000');

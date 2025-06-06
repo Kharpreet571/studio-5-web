@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9fafb;
+      color: #121213;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      background-color: #002287;
+      padding: 1.0rem 1rem;
+      color: #ecf0f1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    nav ul li a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #418dda;
+    }
+
+    main {
+      margin-top: 2rem;
+    }
+
+    main h2 {
+      font-size: 2.2rem;
+      color: #3e7ab7;
+      margin-bottom: 1rem;
+    }
+
+    main p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      max-width: 700px;
+    }
+
+    main ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      max-width: 700px;
+      color: #34495e;
+      font-size: 1.1rem;
+    }
+
+    main ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    footer {
+      margin-top: 0rem;
+      background-color: #010d92;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 0rem 0;
+      font-size: 0.6rem;
+      letter-spacing: 0px;
+    }
+
+   
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+              <%- include('partials/navbar', {currentPage: 'data-privacy-guide'}); %>
+
+      <nav>
+        <ul>
+<li>
+      </a>
+    </li>          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Understanding Data Privacy</h2>
+      <p>Data privacy, also known as information privacy, is essential for managing and protecting personal data. It ensures that consumers' information is collected and used in a way that respects their rights and maintains their trust.</p>
+      
+      <h3>Why Data Privacy Matters</h3>
+      <ul>
+        <li>Protects against unauthorized access and misuse</li>
+        <li>Maintains accuracy of personal information</li>
+        <li>Builds trust in digital services</li>
+        <li>Complies with regulations like GDPR and CCPA</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Privacy by Design Principles</h2>
+      <ul>
+        <li><strong>Proactive not Reactive:</strong> Prevent privacy issues before they occur</li>
+        <li><strong>Privacy as Default:</strong> Automatic protections without user action</li>
+        <li><strong>Embedded Design:</strong> Privacy built into systems from the start</li>
+        <li><strong>Full Functionality:</strong> Achieves privacy without sacrificing other objectives</li>
+        <li><strong>End-to-End Security:</strong> Protection throughout data lifecycle</li>
+        <li><strong>Transparency:</strong> Clear policies and independent verification</li>
+        <li><strong>User Respect:</strong> Prioritizes user interests and control</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2023 Data Privacy Guide. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
