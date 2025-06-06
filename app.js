@@ -6,9 +6,8 @@ const app = express();
 // Configure view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
-// ... rest of your routes and middleware ...
-app.use('/public', express.static('public'));
 
 app.get('/test', (req, res) => {
   res.render('test', { currentPage: 'test' });
